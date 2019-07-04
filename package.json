@@ -1,0 +1,40 @@
+{
+  "name": "prometheus-salesforce-exporter",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": false,
+  "keywords": [
+    "prometheus",
+    "exporter",
+    "metrics",
+    "force",
+    "salesforce"
+  ],
+  "author": {
+    "name": "Andrew Bates",
+    "email": "andrew.bates@harmoney.com"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harmoney-dev/prometheus-salesforce-exporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harmoney-dev/prometheus-salesforce-exporter/issues"
+  },
+  "scripts": {
+    "build": "docker build . -t harmoney-dev/prometheus-salesforce-exporter"
+  },
+  "dependencies": {
+    "debug": "^2.6.8",
+    "express": "4.15.2",
+    "prom-client": "9.1.1",
+    "tedious": "2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
+
+
