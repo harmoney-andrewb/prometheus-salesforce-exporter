@@ -25,17 +25,14 @@ const mssql_connections = {
     metrics: {
         mssql_connections: new client.Gauge({name: 'mssql_connections', help: 'Number of active connections', labelNames: ['database', 'state',]})
     },
-    query: `SELECT DB_NAME(sP.dbid)
-        , COUNT(sP.spid)
-FROM sys.sysprocesses sP
-GROUP BY DB_NAME(sP.dbid)`,
-    collect: function (rows, metrics) {
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const database = row[0].value;
-            const mssql_connections = row[1].value;
-            debug("Fetch number of connections for database", database, mssql_connections);
-            metrics.mssql_connections.set({database: database, state: 'current'}, mssql_connections);
+    query: `SELECT DB_NAME(sP.dbid) , COUNT(sP.spid) FROM sys.sysprocesses sP GROUP BY DB_NAME(sP.dbid)`,
+        collect: function (rows, metrics) {
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const database = row[0].value;
+                const mssql_connections = row[1].value;
+                debug("Fetch number of connections for database", database, mssql_connections);
+                metrics.mssql_connections.set({database: database, state: 'current'}, mssql_connections);
         }
     }
 };
