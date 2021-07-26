@@ -5,10 +5,12 @@ This project has been based substantially on the work by Pierre Awaragi
 
 https://github.com/awaragi/prometheus-mssql-exporter
 
-Prometheus MSSQL Exporter Docker Container
-=============
-
 Prometheus exporter for Salesforce.com (SFDC) Exposes the following metrics
+
+* API Calls in last 24 hours?
+* concurrent batches
+* Exception__C messages created in last 5 mins?
+* 
 
 *  mssql_instance_local_time Number of seconds since epoch on local instance
 *  mssql_connections{database,state} Number of active connections
@@ -20,12 +22,6 @@ Prometheus exporter for Salesforce.com (SFDC) Exposes the following metrics
 *  mssql_io_stall{database,type} Wait time (ms) of stall since last restart
 *  mssql_io_stall_total{database} Wait time (ms) of stall since last restart
 *  mssql_batch_requests Number of Transact-SQL command batches received per second. This statistic is affected by all constraints (such as I/O, number of users, cachesize, complexity of requests, and so on). High batch requests mean good throughput
-*  mssql_page_fault_count Number of page faults since last restart
-*  mssql_memory_utilization_percentage Percentage of memory utilization
-*  mssql_total_physical_memory_kb Total physical memory in KB
-*  mssql_available_physical_memory_kb Available physical memory in KB
-*  mssql_total_page_file_kb Total page file in KB
-*  mssql_available_page_file_kb Available page file in KB
 
 Please feel free to submit other interesting metrics to include.
 
